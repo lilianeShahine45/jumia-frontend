@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card bg-dark my-5">
+        <div class="card-body">
+          <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
+
+          <form #search = "ngForm" (ngSubmit) = "onClickSubmit(search.value)" >
+            <ul class="text-center list-inline py-3">
+              <li class="list-inline-item">
+                <app-country-drop-down (change)="selectOption($event.target.value)"
+                 ></app-country-drop-down>
+                </li>  
+                <li class="list-inline-item">
+                  <input   type = "text" name = "state" placeholder = "state" ngModel>
+                  </li>   
+                  <li class="list-inline-item">
+                    <input class="btn btn-info" type = "submit" value = "Search">
+                    </li>           
+            </ul>
+         </form>
+         <div class="card my-5">
+          <div class="card-body">
+            <table class="table table-bordered table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Phone</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let customer of customers">
+                  <td>{{ customer.id }}</td>
+                  <td>{{ customer.name }}</td>
+                  <td><a href="{{ customer.phone }}">{{ customer.phone }}</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

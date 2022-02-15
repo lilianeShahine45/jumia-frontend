@@ -1,0 +1,8 @@
+<select>
+      <option value="0">--All--</option>
+      <option *ngFor="let country of countries" value="{{country.code}}">
+        {{country.name}}
+      </option>
+    </select>
+
+
